@@ -1,0 +1,272 @@
+\<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="A short, clear description of your site.">
+    <meta name="keywords" content="film club, cineverse, movies, cinema, film reviews">
+    <meta name="author" content="Sai Pradeep">
+    <meta property="og:title" content="CineVerse - The Ultimate Film Club">
+   <meta property="og:description" content="Join CineVerse for weekly screenings, film reviews, and more.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery - CineVerse</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Serpentine', 'Orbitron', sans-serif;
+      color: #ffffff;
+      overflow-x: hidden;
+      background: black;
+    }
+
+    #bgVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      filter: brightness(0.3) contrast(1.2);
+    }
+
+    .navbar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 2;
+      position: relative;
+    }
+
+    .navbar .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ff004c;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ff004c, 0 0 10px #ff004c; }
+      to { text-shadow: 0 0 20px #ff004c, 0 0 40px #ff004c; }
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffcc00;
+    }
+
+    .gallery-section {
+      text-align: center;
+      padding: 80px 20px 40px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .gallery-header h1 {
+      font-size: 2.5rem;
+      color: #ffcc00;
+      animation: fadeInDown 2s ease;
+    }
+
+    .gallery-header p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 25px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .upload-form {
+      margin: 20px auto;
+      padding: 20px;
+      border: 2px dashed #ffcc00;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      animation: fadeIn 3s ease;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .upload-form label {
+      font-size: 1.2rem;
+    }
+
+    .upload-form input, .upload-form button {
+      margin-top: 10px;
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 5px;
+    }
+
+    .upload-form button {
+      background-color: #ff004c;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .confirmation {
+      color: #00ffcc;
+      font-weight: bold;
+      margin-top: 10px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .media-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .media-gallery > * {
+      border: 2px solid #ffcc00;
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.4);
+      width: 100%;
+    }
+
+    audio, video, img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .nav-links {
+        padding: 0;
+      }
+
+      .gallery-header h1 {
+        font-size: 3rem;
+      }
+
+      .gallery-header p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop id="bgVideo">
+    <source src="https://videos.pexels.com/video-files/3141207/3141207-sd_640_360_25fps.mp4" type="video/mp4" />
+  </video>
+
+  <header class="navbar">
+    <div class="logo">🎬 CineVerse</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </header>
+
+  <section class="gallery-section">
+    <div class="gallery-header">
+      <h1>🎥 Film Moments Captured</h1>
+      <p>Upload your own videos or behind-the-scenes moments and share your love for film with us!</p>
+    </div>
+
+    <form class="upload-form" id="form-media">
+      <label for="mediaFile">Upload an Image or Video:</label>
+      <input type="file" id="mediaFile" accept="image/*,video/*" required />
+      <button type="submit">Upload</button>
+      <div class="confirmation" id="confirmation-media"></div>
+    </form>
+
+    <form class="upload-form" id="form-audio">
+      <label for="audioFile">Upload Music or Vocal:</label>
+      <input type="file" id="audioFile" accept="audio/*" required />
+      <button type="submit">Upload</button>
+      <div class="confirmation" id="confirmation-audio"></div>
+    </form>
+
+    <div id="mediaGallery" class="media-gallery"></div>
+  </section>
+
+  <script>
+    const CLOUD_NAME = "dv4tojrhi";
+    const UPLOAD_PRESET = "pradeep_cineverse";
+
+    const formMedia = document.getElementById("form-media");
+    const formAudio = document.getElementById("form-audio");
+    const mediaGallery = document.getElementById("mediaGallery");
+
+    const uploadToCloudinary = async (file, type) => {
+      const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${type}/upload`;
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", UPLOAD_PRESET);
+
+      const res = await fetch(url, { method: "POST", body: formData });
+      const data = await res.json();
+      return data.secure_url;
+    };
+
+    formMedia.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const file = document.getElementById("mediaFile").files[0];
+      if (!file) return;
+
+      const type = file.type.startsWith("image") ? "image" : "video";
+      const url = await uploadToCloudinary(file, type);
+
+      const element = document.createElement(type === "image" ? "img" : "video");
+      element.src = url;
+      if (type === "video") element.controls = true;
+      mediaGallery.prepend(element);
+
+      document.getElementById("confirmation-media").innerText = "Uploaded Successfully!";
+      formMedia.reset();
+    });
+
+    formAudio.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const file = document.getElementById("audioFile").files[0];
+      if (!file) return;
+
+      const url = await uploadToCloudinary(file, "video");
+
+      const audio = document.createElement("audio");
+      audio.src = url;
+      audio.controls = true;
+      mediaGallery.prepend(audio);
+
+      document.getElementById("confirmation-audio").innerText = "Uploaded Successfully!";
+      formAudio.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="A short, clear description of your site.">
+    <meta name="keywords" content="film club, cineverse, movies, cinema, film reviews">
+    <meta name="author" content="Sai Pradeep">
+    <meta property="og:title" content="CineVerse - The Ultimate Film Club">
+   <meta property="og:description" content="Join CineVerse for weekly screenings, film reviews, and more.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About CineVerse</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      background-color: #0d0d0d;
+      overflow-x: hidden;
+    }
+
+    /* Background Video and Overlay */
+    .background-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    #bgVideo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+    }
+
+    .magical-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255,0,76,0.3), transparent);
+      animation: glowPulse 8s infinite ease-in-out;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.pond5.com/neon-glowing-cyan-projector-icon-footage-265840870_iconl.jpeg') repeat;
+      opacity: 0.2;
+    }
+
+    @keyframes glowPulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 0.7; }
+      100% { opacity: 0.4; }
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 60px;
+      background: rgba(0, 0, 0, 0.85);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 0 20px #ff0055;
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: #ff0055;
+      text-shadow: 0 0 10px #ff0055;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ff0055;
+      text-shadow: 0 0 10px #ff0055;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 80px 60px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .glow-text {
+      text-align: center;
+      font-size: 3rem;
+      color: #ff0066;
+      text-shadow: 0 0 20px #ff0066, 0 0 40px #ff3399;
+      margin-bottom: 30px;
+    }
+
+    .intro-text {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      text-align: center;
+      color: #cccccc;
+    }
+
+    .visuals {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-bottom: 50px;
+      animation: floatIn 2s ease-in-out;
+    }
+
+    .visuals img {
+      border-radius: 20px;
+      border: 2px solid #ff0066;
+      box-shadow: 0 0 15px rgba(255, 0, 102, 0.4);
+      height: 160px;
+      width: 160px;
+      object-fit: contain;
+      transition: transform 0.4s;
+    }
+
+    .visuals img:hover {
+      transform: scale(1.1);
+    }
+
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .feature-box {
+      background: rgba(0,0,0,0.6);
+      border: 2px solid #ff3399;
+      border-radius: 20px;
+      padding: 30px;
+      width: 80%;
+      max-width: 800px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(255, 51, 153, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-box:hover {
+      transform: scale(1.02);
+    }
+
+    .feature-box h1 {
+      font-size: 2rem;
+      color: #ff3399;
+      margin-bottom: 15px;
+    }
+
+    .feature-box h3 {
+      font-size: 1.1rem;
+      color: #dddddd;
+    }
+
+    .feature-box img {
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+
+    .quote {
+      text-align: center;
+      font-style: italic;
+      font-size: 1.4rem;
+      color: #eeeeee;
+      margin-top: 30px;
+    }
+
+    .quote footer {
+      font-size: 1rem;
+      margin-top: 10px;
+      color: #aaaaaa;
+    }
+
+    .founders {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 60px auto;
+      flex-wrap: wrap;
+    }
+
+    .founder {
+      text-align: center;
+      color: #dddddd;
+    }
+
+    .founder img {
+      border-radius: 50%;
+      border: 3px solid #ff3399;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(255, 0, 102, 0.6);
+    }
+
+    .footer {
+      padding: 30px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.9);
+      color: #ff0055;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 -5px 20px #ff0055;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 20px 40px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .about-section {
+        padding: 60px 30px;
+      }
+
+      .glow-text {
+        font-size: 2.5rem;
+      }
+
+      .intro-text {
+        font-size: 1rem;
+      }
+
+      .visuals {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .visuals img {
+        height: 120px;
+        width: 120px;
+      }
+
+      .feature-box {
+        width: 90%;
+        padding: 20px;
+      }
+
+      .feature-box h1 {
+        font-size: 1.5rem;
+      }
+
+      .feature-box h3 {
+        font-size: 1rem;
+      }
+
+      .quote {
+        font-size: 1.2rem;
+      }
+
+      .contact {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 40px 20px;
+        text-align: center;
+        margin-top: 60px;
+        border-top: 2px solid #00fff7;
+      }
+  
+      .contact h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #00fff7;
+        text-shadow: 0 0 10px #00fff7;
+      }
+  
+      .contact p {
+        font-size: 1.1em;
+        color: #ccc;
+      }
+
+      .footer {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      .nav-links a {
+        font-size: 0.9rem;
+      }
+
+      .glow-text {
+        font-size: 2rem;
+      }
+
+      .intro-text {
+        font-size: 0.9rem;
+      }
+
+      .visuals img {
+        height: 100px;
+        width: 100px;
+      }
+
+      .feature-box {
+        padding: 15px;
+      }
+
+      .feature-box h1 {
+        font-size: 1.2rem;
+      }
+
+      .feature-box h3 {
+        font-size: 0.9rem;
+      }
+
+      .quote {
+        font-size: 1rem;
+      }
+
+      
+
+      .footer {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-overlay">
+    <video autoplay muted loop id="bgVideo">
+      <source src="https://videos.pexels.com/video-files/2297636/2297636-sd_640_360_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="magical-glow"></div>
+    <div class="stars"></div>
+  </div>
+
+  <header class="navbar">
+    <div class="logo">🎬 CineVerse</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </header>
+
+  <section class="about-section">
+    <h1 class="glow-text">✨ About CineVerse Film Team ✨</h1>
+    <p class="intro-text">
+      Welcome to CineVerse — a special place for movie lovers, dreamers, and future filmmakers. Whether you enjoy small indie films or big blockbuster hits, we celebrate all kinds of stories. Our team is for anyone who’s been waiting for a chance to shine. We don’t choose people based on talent — we welcome anyone with a true love for cinema and a passion to create. If you believe in your dreams, CineVerse is here to support you.
+    </p>
+
+    <div class="visuals">
+      <img src="https://img.freepik.com/free-photo/man-filming-with-professional-camera_23-2149066324.jpg?semt=ais_hybrid&w=740" alt="Camera" />
+      <img src="https://vadastudios.com/wp-content/uploads/2023/03/Acting-Classes-for-Film.png" alt="Film Strip" />
+      <img src="https://cdn-www.avid.com/-/media/avid/images/resource-center/images/2021-10/1862x1040_remote-tools-free-video-editors-to-shape-film-production-from-any-location.jpg?h=900&iar=0&mw=1600&w=1600&hash=9B76E62BD4A80F50FEB623B9E0201218" alt="Popcorn" />
+      <img src="https://t4.ftcdn.net/jpg/00/78/02/43/360_F_78024352_Y2JAjeNn6imNPtqdFl43bNgsLrE5qljE.jpg" alt="Projector" />
+    </div>
+
+    <div class="features">
+      <div class="feature-box">
+        <img src="https://media.istockphoto.com/id/1494642262/photo/people-in-the-cinema-auditorium-with-empty-white-screen.jpg?s=612x612&w=0&k=20&c=wiVYHafqEAlvufaCpOTZhn9wuklrgKHdDHWqpmMGhjw=" alt="Screening Icon" height="140" />
+        <h1>🎥 Screenings</h1>
+        <h3>From Kubrick to K-dramas — join our weekly showings in Dolby-styled rooms. Enjoy films on a big screen with great sound, just like at the cinema.</h3>
+      </div>
+      <div class="feature-box">
+        <img src="https://images.stockcake.com/public/0/e/0/0e035a2c-66a2-471a-8b8f-e189030f89c8_large/film-set-action-stockcake.jpg" alt="Mic" height="140" />
+        <h1>🗣️ Discussions</h1>
+        <h3>Talk cinema, aesthetics, and script theory with passionate peers. Everyone’s opinion is valued, and we love hearing new ideas and thoughts.</h3>
+      </div>
+      <div class="feature-box">
+        <img src="https://cdn.pixabay.com/photo/2021/08/19/19/24/documentary-6558795_640.jpg" alt="Clapperboard" height="140" />
+        <h1>🎬 Film-making</h1>
+        <h3>Join masterclasses on directing, cinematography, editing & VFX. Get hands-on experience and build something amazing together.</h3>
+      </div>
+      <div class="feature-box">
+        <img src="https://www.undergroundpress.co.za/templates/yootheme/cache/a5/music--film-editing-wallpaper-a5ce1d1c.jpeg" alt="Music Icon" height="140" />
+        <h1>🎵 Music in Film</h1>
+        <h3>Explore how music creates emotion in movies. Learn about soundtracks, composing, and how to choose the right tune for the right scene.</h3>
+      </div>
+    </div>
+
+    <div class="quote">
+      <blockquote>
+        “Cinema is a mirror by which we often see ourselves.”
+        <footer>- Alejandro González Iñárritu</footer>
+      </blockquote>
+    </div>
+
+    <div class="contact">
+      <h2>Contact Us</h2>
+      <p>Email: sai.pradeep.77964@gmail.com</p>
+      <p>Phone: +91-9398529863</p>
+      <p>Follow us on Instagram: <a style="color:#00fff7;">@cineverse_team</a></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>🌌 CineVerse — Where every frame tells a story.</p>
+  </footer>
+</body>
+</html>

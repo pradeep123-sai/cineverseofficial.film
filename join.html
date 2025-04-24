@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="A short, clear description of your site.">
+  <meta name="keywords" content="film club, cineverse, movies, cinema, film reviews">
+  <meta name="author" content="Sai Pradeep">
+  <meta property="og:title" content="CineVerse - The Ultimate Film Club">
+  <meta property="og:description" content="Join CineVerse for weekly screenings, film reviews, and more.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join CineVerse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(270deg, #000000, #111111, #000000);
+      background-size: 600% 600%;
+      animation: backgroundShift 20s ease infinite;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    @keyframes backgroundShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .navbar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px 30px;
+      box-shadow: 0 0 10px rgba(255, 0, 100, 0.5);
+      flex-wrap: wrap;
+      z-index: 1;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ff004f;
+      margin-bottom: 10px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: #ff004f;
+    }
+
+    .join-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 30px 20px;
+      box-sizing: border-box;
+      z-index: 1;
+      position: relative;
+    }
+
+    .form-container {
+      background: rgba(20, 20, 20, 0.95);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(255, 0, 100, 0.7);
+      width: 100%;
+      max-width: 500px;
+      box-sizing: border-box;
+    }
+
+    .join-title {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #ff004f;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #ccc;
+      margin-bottom: 25px;
+    }
+
+    .join-form label,
+    .join-form input,
+    .join-form textarea {
+      animation: fadeInUp 1s ease-out;
+      width: 100%;
+    }
+
+    .join-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .join-form input,
+    .join-form textarea {
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: none;
+      background-color: #111;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .submit-button {
+      width: 100%;
+      padding: 12px;
+      background: #ff004f;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .submit-button:hover {
+      background: #e60044;
+    }
+
+    .form-message {
+      text-align: center;
+      color: #00ffcc;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      .nav-links {
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .form-container {
+        padding: 25px 20px;
+      }
+
+      .join-title {
+        font-size: 1.5rem;
+      }
+
+      .submit-button {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔥 Background Video -->
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="https://videos.pexels.com/video-files/2297636/2297636-sd_640_360_30fps.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <header class="navbar">
+    <div class="logo">🎬 CineVerse</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="join.html" class="active">Join</a></li>
+    </ul>
+  </header>
+
+  <section class="join-section">
+    <div class="form-container">
+      <h1 class="join-title">Become a CineVerse Member</h1>
+      <p class="subtitle">Fill in your cinematic story</p>
+
+      <form id="joinForm" class="join-form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="roll">Roll Number</label>
+        <input type="text" id="roll" name="roll" required />
+
+        <label for="branch">Branch & Section</label>
+        <input type="text" id="branch" name="branch" required />
+
+        <label for="interest">Field you're interested in</label>
+        <textarea id="interest" name="interest" required></textarea>
+
+        <button type="submit" class="submit-button">🎥 Join Now</button>
+      </form>
+
+      <p id="formMessage" class="form-message"></p>
+    </div>
+  </section>
+
+  <!-- Firebase and Fire.js -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+  <script src="fire.js"></script>
+
+</body>
+</html>
