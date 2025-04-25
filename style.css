@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Orbitron:wght@500&display=swap');
+
+/* === Global Reset and Base === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  overflow-x: hidden;
+  background-color: #0d0d0d;
+  position: relative;
+}
+
+/* === Star and Cloud Background Layers === */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.pond5.com/neon-glowing-cyan-projector-icon-footage-265840870_iconl.jpeg') repeat;
+  opacity: 0.2;
+  z-index: -3;
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.pond5.com/neon-glowing-cyan-projector-icon-footage-265840870_iconl.jpeg') repeat;
+  opacity: 0.07;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* === Navbar === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 10px #ff004c;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.8rem;
+  color: #ff004c;
+  font-weight: bold;
+  animation: flicker 2s infinite alternate;
+  text-shadow: 0 0 20px #ff004c;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.8rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff004c;
+}
+
+/* === Fullscreen Welcome Section === */
+.full-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.9));
+  text-align: center;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.full-screen h1 {
+  font-size: 4.5rem;
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 700;
+  color: #00ffff;
+  text-shadow: 0 0 25px #00ffff;
+  margin-bottom: 1.2rem;
+  animation: glowFade 4s ease-in-out infinite;
+}
+
+.full-screen p {
+  font-size: 1.4rem;
+  color: #d1d1d1;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.cta-button {
+  padding: 0.9rem 2.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #ff004c, #9e00ff);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff004c;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: pulseButton 4s infinite;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #ff004c;
+}
+
+/* === Magical Floating Images === */
+.floating-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.floating-images img {
+  position: absolute;
+  width: 80px;
+  opacity: 0.7;
+  animation: float 10s infinite linear;
+}
+
+/* Example floating image positions */
+.floating-images img:nth-child(1) {
+  top: 10%;
+  left: 5%;
+  animation-duration: 12s;
+}
+
+.floating-images img:nth-child(2) {
+  top: 40%;
+  left: 80%;
+  animation-duration: 9s;
+}
+
+.floating-images img:nth-child(3) {
+  top: 70%;
+  left: 20%;
+  animation-duration: 11s;
+}
+
+/* === Glowing Magical Elements === */
+.magical-glow {
+  animation: pulseGlow 3s infinite alternate;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+/* === Animations === */
+@keyframes glowFade {
+  0% {
+    text-shadow: 0 0 20px #00ffff;
+  }
+  50% {
+    text-shadow: 0 0 40px #00ffff;
+  }
+  100% {
+    text-shadow: 0 0 20px #00ffff;
+  }
+}
+
+@keyframes pulseButton {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  5% {
+    opacity: 0.4;
+  }
+  10% {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+  }
+  100% {
+    text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+  }
+}
