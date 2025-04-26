@@ -4,7 +4,7 @@
   <meta name="description" content="A short, clear description of your site.">
   <meta name="keywords" content="film club, cineverse, movies, cinema, film reviews">
   <meta name="author" content="Sai Pradeep">
-  <meta property="og:title" content="CineVerse - The Ultimate Film Team">
+  <meta property="og:title" content="CineVerse - The Ultimate Film Club">
   <meta property="og:description" content="Join CineVerse for weekly screenings, film reviews, and more.">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -124,7 +124,8 @@
 
     .join-form label,
     .join-form input,
-    .join-form textarea {
+    .join-form textarea,
+    .join-form select {
       animation: fadeInUp 1s ease-out;
       width: 100%;
     }
@@ -137,7 +138,8 @@
     }
 
     .join-form input,
-    .join-form textarea {
+    .join-form textarea,
+    .join-form select {
       padding: 10px;
       margin-bottom: 20px;
       border-radius: 8px;
@@ -237,7 +239,36 @@
         <input type="text" id="roll" name="roll" required />
 
         <label for="branch">Branch & Section</label>
-        <input type="text" id="branch" name="branch" required />
+        <select id="branch" name="branch" required>
+          <option value="" disabled selected>Select your branch</option>
+          <option value="CSE-A">CSE - A</option>
+          <option value="CSE-B">CSE - B</option>
+          <option value="CSE-C">CSE - C</option>
+          <option value="CSE-D">CSE - D</option>
+          <option value="CSE-E">CSE - E</option>
+          <option value="CSE-F">CSE - F</option>
+          <option value="CSE-G">CSE - G</option>
+          <option value="CSE-H">CSE - H</option>
+          <option value="CSE-I">CSE - I</option>
+          <option value="PHE">PHE</option>
+          <option value="CSM-A">CSM - A</option>
+          <option value="CSE-A">CSM - B</option>
+          <option value="CSE-A">CSM - C</option>
+          <option value="CIVIL-A">CIVIL - A</option>
+          <option value="CIVIL-B">CIVIL - B</option>
+          <option value="CSD-A">CSD - A</option>
+          <option value="CSD-B">CSD - B</option>
+          <option value="AIDS - A">AIDS - A </option>
+          <option value="AIDS - B">AIDS - B</option>
+          <option value="CSBS">CSBS</option>
+          <option value="BME">BME</option>
+          <option value="ECE-A">ECE - A</option>
+          <option value="ECE-B">ECE - B</option>
+          <option value="EEE">EEE</option>
+          <option value="MECH">MECH</option>
+          <option value="IT">IT</option>
+          <option value="CHEMICAL">CHEMICAL</option>
+        </select>
 
         <label for="interest">Field you're interested in</label>
         <textarea id="interest" name="interest" required></textarea>
