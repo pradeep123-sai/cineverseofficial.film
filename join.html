@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="description" content="A short, clear description of your site.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Join CineVerse for weekly screenings, film reviews, and more.">
   <meta name="keywords" content="film club, cineverse, movies, cinema, film reviews">
   <meta name="author" content="Sai Pradeep">
   <meta property="og:title" content="CineVerse - The Ultimate Film Club">
-  <meta property="og:description" content="Join CineVerse for weekly screenings, film reviews, and more.">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta property="og:description" content="Become a CineVerse Member - Live your cinematic dreams!">
   <title>Join CineVerse</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet"/>
+  
   <style>
     body {
       margin: 0;
@@ -47,32 +49,30 @@
 
     .navbar {
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
       align-items: center;
       background-color: rgba(0, 0, 0, 0.8);
       padding: 20px 30px;
       box-shadow: 0 0 10px rgba(255, 0, 100, 0.5);
       flex-wrap: wrap;
-      z-index: 1;
       position: relative;
+      z-index: 1;
     }
 
     .logo {
       font-size: 1.8rem;
       font-weight: bold;
       color: #ff004f;
-      margin-bottom: 10px;
     }
 
     .nav-links {
       list-style: none;
       display: flex;
       gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
       padding-left: 0;
       margin: 0;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .nav-links a {
@@ -107,6 +107,7 @@
       width: 100%;
       max-width: 500px;
       box-sizing: border-box;
+      animation: fadeInUp 1s ease;
     }
 
     .join-title {
@@ -122,14 +123,6 @@
       margin-bottom: 25px;
     }
 
-    .join-form label,
-    .join-form input,
-    .join-form textarea,
-    .join-form select {
-      animation: fadeInUp 1s ease-out;
-      width: 100%;
-    }
-
     .join-form label {
       display: block;
       margin-bottom: 5px;
@@ -140,6 +133,7 @@
     .join-form input,
     .join-form textarea,
     .join-form select {
+      width: 100%;
       padding: 10px;
       margin-bottom: 20px;
       border-radius: 8px;
@@ -252,14 +246,14 @@
           <option value="CSE-I">CSE - I</option>
           <option value="PHE">PHE</option>
           <option value="CSM-A">CSM - A</option>
-          <option value="CSE-A">CSM - B</option>
-          <option value="CSE-A">CSM - C</option>
+          <option value="CSM-B">CSM - B</option>
+          <option value="CSM-C">CSM - C</option>
           <option value="CIVIL-A">CIVIL - A</option>
           <option value="CIVIL-B">CIVIL - B</option>
           <option value="CSD-A">CSD - A</option>
           <option value="CSD-B">CSD - B</option>
-          <option value="AIDS - A">AIDS - A </option>
-          <option value="AIDS - B">AIDS - B</option>
+          <option value="AIDS-A">AIDS - A</option>
+          <option value="AIDS-B">AIDS - B</option>
           <option value="CSBS">CSBS</option>
           <option value="BME">BME</option>
           <option value="ECE-A">ECE - A</option>
@@ -271,7 +265,7 @@
         </select>
 
         <label for="interest">Field you're interested in</label>
-        <textarea id="interest" name="interest" required></textarea>
+        <textarea id="interest" name="interest" placeholder="Acting, Direction, Editing etc..." required></textarea>
 
         <button type="submit" class="submit-button">🎥 Join Now</button>
       </form>
@@ -280,9 +274,10 @@
     </div>
   </section>
 
-  <!-- Firebase and Fire.js -->
+  <!-- Firebase and Scripts -->
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="fire.js"></script>
 
 </body>
