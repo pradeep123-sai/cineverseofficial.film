@@ -12,6 +12,9 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// Initialize EmailJS
+emailjs.init("g3zR3vVAeCTTkrESZ"); // Replace with your EmailJS public key
+
 // Reference to Firebase database
 const database = firebase.database();
 
@@ -42,6 +45,26 @@ joinForm.addEventListener('submit', function(e) {
     joinedAt: new Date().toISOString()
   })
   .then(() => {
+
+    // Prepare EmailJS template parameters
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      phone: phone,
+      roll: roll,
+      branch: branch,
+      interest: interest
+    };
+
+    // Send the email using EmailJS
+    emailjs.send('service_0r62w8t', 'template_m9lqqvb', templateParams)
+    .then((response) => {
+      console.log('Email successfully sent!', response.status, response.text);
+    })
+    .catch((error) => {
+      console.error('Email sending failed:', error);
+    });
+
     // Store the email in localStorage
     localStorage.setItem("userEmail", email);
 
@@ -50,8 +73,8 @@ joinForm.addEventListener('submit', function(e) {
 
     // Reset form
     joinForm.reset();
-    
-    // Redirect to gallery page (optional)
+
+    // Optional: Redirect to gallery page after submission
     // window.location.href = 'gallery.html';  // Uncomment if you want to redirect after submission
   })
   .catch((error) => {
