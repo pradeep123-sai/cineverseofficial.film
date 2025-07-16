@@ -1,11 +1,11 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta name="description" content="the team where film lovers connect.">
-    <meta name="keywords" content="film club, cineverse, movies, cinema, film reviews">
-    <meta name="author" content="Sai Pradeep">
-    <meta property="og:title" content="CineVerse - The Ultimate Film Team">
-   <meta property="og:description" content="Join CineVerse for weekly screenings, film reviews, and more.">
+  <meta name="keywords" content="film club, cineverse, movies, cinema, film reviews">
+  <meta name="author" content="Sai Pradeep">
+  <meta property="og:title" content="CineVerse - The Ultimate Film Team">
+  <meta property="og:description" content="Join CineVerse for weekly screenings, film reviews, and more.">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gallery - CineVerse</title>
@@ -195,7 +195,8 @@
 
   <section class="gallery-section">
     <div class="gallery-header">
-      <h1>Film Moments Captured</h1>
+      <h1>
+        Moments Captured</h1>
       <p>Upload your own videos or behind-the-scenes moments and share your love for film with us!</p>
     </div>
 
@@ -214,6 +215,10 @@
     </form>
 
     <div id="mediaGallery" class="media-gallery"></div>
+
+    <p style="margin-top: 30px; color: #ffcc00; font-weight: bold;">
+      NOTE: Make sure to name your file as your ROLL NUMBER. Only then will your submission be considered.
+    </p>
   </section>
 
   <script>
@@ -240,6 +245,8 @@
       const file = document.getElementById("mediaFile").files[0];
       if (!file) return;
 
+      document.getElementById("confirmation-media").innerText = "Uploading...";
+
       const type = file.type.startsWith("image") ? "image" : "video";
       const url = await uploadToCloudinary(file, type);
 
@@ -256,6 +263,8 @@
       e.preventDefault();
       const file = document.getElementById("audioFile").files[0];
       if (!file) return;
+
+      document.getElementById("confirmation-audio").innerText = "Uploading...";
 
       const url = await uploadToCloudinary(file, "video");
 
