@@ -13,6 +13,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -185,6 +189,7 @@
       text-align: center;
       box-shadow: 0 0 25px rgba(255, 51, 153, 0.4);
       transition: transform 0.3s ease;
+      overflow: hidden;
     }
 
     .feature-box:hover {
@@ -200,11 +205,17 @@
     .feature-box h3 {
       font-size: 1.1rem;
       color: #dddddd;
+      word-wrap: break-word;
     }
 
     .feature-box img {
+      max-width: 100%;
+      height: auto;
       margin-bottom: 15px;
       border-radius: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .quote {
