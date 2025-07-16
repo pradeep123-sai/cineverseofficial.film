@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="description" content="A short, clear description of your site.">
-  <meta name="keywords" content="film club, cineverse, movies, cinema, film reviews">
+  <meta name="description" content="A film club for dreamers and creators.">
+  <meta name="keywords" content="film club, cineverse, cinema, movies, filmmaking">
   <meta name="author" content="Sai Pradeep">
-  <meta property="og:title" content="CineVerse - The Ultimate Film Team">
-  <meta property="og:description" content="Join CineVerse for weekly screenings, film reviews, and more.">
+  <meta property="og:title" content="CineVerse - Where Every Frame Tells a Story">
+  <meta property="og:description" content="Join CineVerse: Watch, Create, Celebrate Cinema.">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About CineVerse</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+
   <style>
     * {
       box-sizing: border-box;
@@ -21,8 +22,8 @@
       margin: 0;
       padding: 0;
       font-family: 'Orbitron', sans-serif;
-      color: #fff;
       background-color: #0d0d0d;
+      color: #fff;
       overflow-x: hidden;
     }
 
@@ -40,29 +41,28 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.4;
+      opacity: 0.3;
     }
 
     .magical-glow {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle, rgba(255,0,76,0.3), transparent);
+      background: radial-gradient(circle, rgba(255,0,76,0.25), transparent);
       animation: glowPulse 8s infinite ease-in-out;
     }
 
     .stars {
+      background: url('https://images.pond5.com/neon-glowing-cyan-projector-icon-footage-265840870_iconl.jpeg') repeat;
+      opacity: 0.15;
       position: absolute;
       width: 100%;
       height: 100%;
-      background: url('https://images.pond5.com/neon-glowing-cyan-projector-icon-footage-265840870_iconl.jpeg') repeat;
-      opacity: 0.2;
     }
 
     @keyframes glowPulse {
-      0% { opacity: 0.4; }
-      50% { opacity: 0.7; }
-      100% { opacity: 0.4; }
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.5; }
     }
 
     .nav-links {
@@ -95,177 +95,120 @@
       }
 
       .nav-links a {
-        font-size: 0.95rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .nav-links {
-        top: 10px;
-        right: 10px;
-        gap: 10px;
-      }
-
-      .nav-links a {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
       }
     }
 
     .about-section {
-      padding: 80px 60px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      padding: 100px 30px 60px;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
     }
 
     .glow-text {
-      text-align: center;
       font-size: 3rem;
-      color: #ff0066;
-      text-shadow: 0 0 20px #ff0066, 0 0 40px #ff3399;
-      margin-bottom: 30px;
-    }
-
-    @media (max-width: 600px) {
-      .glow-text {
-        font-size: 1.5rem;
-        white-space: nowrap;
-      }
+      color: #ff3399;
+      text-shadow: 0 0 20px #ff3399;
+      margin-bottom: 20px;
     }
 
     .intro-text {
-      font-size: 1.2rem;
-      max-width: 800px;
-      margin: 0 auto 40px auto;
-      text-align: center;
-      color: #cccccc;
-    }
-
-    .visuals {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 25px;
-      margin-bottom: 50px;
-      animation: floatIn 2s ease-in-out;
-    }
-
-    .visuals img {
-      border-radius: 20px;
-      border: 2px solid #ff0066;
-      box-shadow: 0 0 15px rgba(255, 0, 102, 0.4);
-      height: 160px;
-      width: 160px;
-      object-fit: contain;
-      transition: transform 0.4s;
-    }
-
-    .visuals img:hover {
-      transform: scale(1.1);
+      font-size: 1.1rem;
+      color: #ccc;
+      margin: 0 auto 40px;
+      max-width: 700px;
+      line-height: 1.6;
     }
 
     .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin: 50px 0;
+    }
+
+    .feature-card {
       display: flex;
       flex-direction: column;
-      gap: 40px;
       align-items: center;
-      margin-bottom: 60px;
+      background: transparent;
+      border-radius: 16px;
+      padding: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .feature-box {
-      background: rgba(0,0,0,0.6);
-      border: 2px solid #ff3399;
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(255, 0, 85, 0.3);
+    }
+
+    .feature-card img {
       border-radius: 20px;
-      padding: 30px;
-      width: 80%;
-      max-width: 800px;
-      text-align: center;
-      box-shadow: 0 0 25px rgba(255, 51, 153, 0.4);
-      transition: transform 0.3s ease;
-      overflow: hidden;
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(255, 0, 102, 0.4);
     }
 
-    .feature-box:hover {
-      transform: scale(1.02);
+    .feature-text {
+      margin-top: 15px;
     }
 
-    .feature-box h1 {
-      font-size: 2rem;
-      color: #ff3399;
-      margin-bottom: 15px;
+    .feature-text h2 {
+      color: #ff66aa;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
     }
 
-    .feature-box h3 {
-      font-size: 1.1rem;
-      color: #dddddd;
-      word-wrap: break-word;
-    }
-
-    .feature-box img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+    .feature-text p {
+      font-size: 1rem;
+      color: #ccc;
     }
 
     .quote {
-      text-align: center;
+      margin-top: 60px;
       font-style: italic;
       font-size: 1.4rem;
       color: #eeeeee;
-      margin-top: 30px;
     }
 
     .quote footer {
-      font-size: 1rem;
       margin-top: 10px;
-      color: #aaaaaa;
+      font-size: 1rem;
+      color: #aaa;
     }
 
     .contact-section {
-      text-align: center;
-      padding: 40px 20px;
+      margin-top: 80px;
       color: #00fff7;
     }
 
     .subtitle {
       color: #f6fafa;
+      margin-bottom: 20px;
     }
 
     .contact-icons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
+      gap: 15px;
     }
 
     .contact-icons a {
       display: flex;
-      align-items: center;
       justify-content: center;
-      text-decoration: none;
-      color: #fff;
-      background-color: #333;
-      padding: 12px;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-      width: 48px;
-      height: 48px;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background: #222;
+      transition: background 0.3s;
     }
 
     .contact-icons a:hover {
-      background-color: #555;
+      background: #ff3399;
     }
 
     .contact-icons img {
@@ -273,36 +216,18 @@
       height: 24px;
     }
 
-    @media (max-width: 600px) {
-      .contact-icons {
-        flex-direction: row;
-        gap: 12px;
-      }
-
-      .contact-icons a {
-        width: 40px;
-        height: 40px;
-        padding: 8px;
-      }
-
-      .contact-icons img {
-        width: 20px;
-        height: 20px;
-      }
-    }
-
     .footer {
-      padding: 30px;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.9);
+      padding: 25px;
+      background: rgba(0, 0, 0, 0.95);
       color: #ff0055;
       font-weight: bold;
-      font-size: 1.1rem;
+      text-align: center;
       box-shadow: 0 -5px 20px #ff0055;
     }
   </style>
 </head>
 <body>
+
   <div class="background-overlay">
     <video autoplay muted loop id="bgVideo">
       <source src="https://videos.pexels.com/video-files/2297636/2297636-sd_640_360_30fps.mp4" type="video/mp4">
@@ -319,38 +244,39 @@
   </ul>
 
   <section class="about-section">
-    <h1 class="glow-text">✨CineVerse✨</h1>
+    <h1 class="glow-text">✨ CineVerse ✨</h1>
     <p class="intro-text">
-      Welcome to CineVerse — a special place for movie lovers, dreamers, and future filmmakers. Whether you enjoy small indie films or big blockbuster hits, we celebrate all kinds of stories. Our team is for anyone who’s been waiting for a chance to shine. We don’t choose people based on talent — we welcome anyone with a true love for cinema and a passion to create. If you believe in your dreams, CineVerse is here to support you.
+      Welcome to CineVerse — a community for movie lovers and creators. From timeless classics to indie gems, we celebrate stories of all kinds. Whether you're an aspiring director or just love watching films, you're welcome here.
     </p>
 
-    <div class="visuals">
-      <img src="https://img.freepik.com/free-photo/man-filming-with-professional-camera_23-2149066324.jpg?semt=ais_hybrid&w=740" alt="Camera" />
-      <img src="https://vadastudios.com/wp-content/uploads/2023/03/Acting-Classes-for-Film.png" alt="Film Strip" />
-      <img src="https://cdn-www.avid.com/-/media/avid/images/resource-center/images/2021-10/1862x1040_remote-tools-free-video-editors-to-shape-film-production-from-any-location.jpg" alt="Editing" />
-      <img src="https://t4.ftcdn.net/jpg/00/78/02/43/360_F_78024352_Y2JAjeNn6imNPtqdFl43bNgsLrE5qljE.jpg" alt="Projector" />
-    </div>
-
     <div class="features">
-      <div class="feature-box">
-        <img src="https://media.istockphoto.com/id/1494642262/photo/people-in-the-cinema-auditorium-with-empty-white-screen.jpg?s=612x612&w=0&k=20&c=wiVYHafqEAlvufaCpOTZhn9wuklrgKHdDHWqpmMGhjw=" alt="Screening Icon" height="140" />
-        <h1>🎥 Screenings</h1>
-        <h3>From Kubrick to K-dramas — join our weekly showings in Dolby-styled rooms. Enjoy films on a big screen with great sound, just like at the cinema.</h3>
+      <div class="feature-card">
+        <img src="https://media.istockphoto.com/id/1494642262/photo/people-in-the-cinema-auditorium-with-empty-white-screen.jpg?s=612x612&w=0&k=20&c=wiVYHafqEAlvufaCpOTZhn9wuklrgKHdDHWqpmMGhjw=" alt="Screening">
+        <div class="feature-text">
+          <h2>🎥 Screenings</h2>
+          <p>Watch iconic films in Dolby-style rooms with immersive sound and visuals every week.</p>
+        </div>
       </div>
-      <div class="feature-box">
-        <img src="https://images.stockcake.com/public/0/e/0/0e035a2c-66a2-471a-8b8f-e189030f89c8_large/film-set-action-stockcake.jpg" alt="Mic" height="140" />
-        <h1>🗣️ Discussions</h1>
-        <h3>Talk cinema, aesthetics, and script theory with passionate peers. Everyone’s opinion is valued, and we love hearing new ideas and thoughts.</h3>
+      <div class="feature-card">
+        <img src="https://images.stockcake.com/public/0/e/0/0e035a2c-66a2-471a-8b8f-e189030f89c8_large/film-set-action-stockcake.jpg" alt="Discussion">
+        <div class="feature-text">
+          <h2>🗣️ Discussions</h2>
+          <p>Engage in thoughtful chats on storytelling, cinematography, and philosophy of film.</p>
+        </div>
       </div>
-      <div class="feature-box">
-        <img src="https://cdn.pixabay.com/photo/2021/08/19/19/24/documentary-6558795_640.jpg" alt="Clapperboard" height="140" />
-        <h1>🎬 Film-making</h1>
-        <h3>Join masterclasses on directing, cinematography, editing & VFX. Get hands-on experience and build something amazing together.</h3>
+      <div class="feature-card">
+        <img src="https://cdn.pixabay.com/photo/2021/08/19/19/24/documentary-6558795_640.jpg" alt="Film-making">
+        <div class="feature-text">
+          <h2>🎬 Film-making</h2>
+          <p>Collaborate on short films, edit reels, or learn VFX and sound design from mentors.</p>
+        </div>
       </div>
-      <div class="feature-box">
-        <img src="https://www.undergroundpress.co.za/templates/yootheme/cache/a5/music--film-editing-wallpaper-a5ce1d1c.jpeg" alt="Music Icon" height="140" />
-        <h1>🎵 Music in Film</h1>
-        <h3>Explore how music creates emotion in movies. Learn about soundtracks, composing, and how to choose the right tune for the right scene.</h3>
+      <div class="feature-card">
+        <img src="https://www.undergroundpress.co.za/templates/yootheme/cache/a5/music--film-editing-wallpaper-a5ce1d1c.jpeg" alt="Music in Film">
+        <div class="feature-text">
+          <h2>🎵 Music & Emotions</h2>
+          <p>Discover how music intensifies emotion in cinema. From scores to soundtracks—we explore it all.</p>
+        </div>
       </div>
     </div>
 
@@ -361,12 +287,10 @@
       </blockquote>
     </div>
 
-    <br/><br/><br/><br/>
-
     <div class="contact-section">
       <h2>Contact Us</h2>
       <div class="subtitle">
-        <p>If you have any questions, suggestions, or feedback, feel free to reach out to us anytime.<br>We're here to help and would love to hear from you!</p>
+        <p>Questions, ideas, or just want to connect? We're always listening.</p>
       </div>
       <div class="contact-icons">
         <a href="mailto:sai.pradeep.77964@gmail.com">
